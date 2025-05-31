@@ -1,0 +1,39 @@
+[project]
+name = "service-name"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "abhishek pd. gupta",email = "abhipdgupta007@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)",
+    "boto3 (>=1.38.26,<2.0.0)",
+    "awslambdaric (>=3.1.1,<4.0.0)",
+]
+
+[tool.poetry]
+package-mode = false
+
+[[tool.poetry.packages]]
+include = "src"
+from = "."
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.16.0"
+ruff = "^0.11.12"
+types-boto3 = "^1.38.26"
+pytest = "^8.3.5"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --tb=short"
+testpaths = [
+  "tests"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
